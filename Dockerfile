@@ -20,8 +20,8 @@ ENV MAMBA_EXE="/bin/micromamba"
 COPY --from=mamba_install $MAMBA_EXE $MAMBA_EXE
 COPY --from=mamba_install $MAMBA_ROOT_PREFIX $MAMBA_ROOT_PREFIX
 
-RUN micromamba create --name $ENV_NAME python=3.11 -y -c conda-forge && \
-    micromamba activate $ENV_NAME && \
+RUN micromamba activate $ENV_NAME && \
+    micromamba install python=3.11 -y -c conda-forge && \
     pip install ipython jsonschema scif
 
 ENTRYPOINT ["/bin/bash"]
