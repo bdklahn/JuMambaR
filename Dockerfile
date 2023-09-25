@@ -2,7 +2,7 @@ FROM julia:1.9.3-bookworm as julia_install
 
 FROM mambaorg/micromamba:1.5.1-bookworm-slim as mamba_install
 
-FROM r-base:4.3.1
+FROM rocker/r2u:jammy
 
 RUN apt-get update && \
     apt-get install --assume-yes \
