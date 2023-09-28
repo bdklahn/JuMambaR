@@ -1,8 +1,8 @@
-FROM julia:1.9.3-bookworm as julia_install
+FROM julia:1-bookworm as julia_install
 
-FROM mambaorg/micromamba:1.5.1-bookworm-slim as mamba_install
+FROM mambaorg/micromamba:1-bookworm-slim as mamba_install
 
-FROM ghcr.io/bdklahn/epir:0.1.0
+FROM rocker/r-ver:4
 
 RUN apt-get update && \
     apt-get install --assume-yes \
