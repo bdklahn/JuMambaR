@@ -6,9 +6,11 @@ FROM rocker/r-ver:4
 
 RUN apt-get update && \
     apt-get install --assume-yes \
+    curl \
     git \
     jq \
-    tree
+    tree && \
+    apt-get clean --assume-yes
 
 ENV JULIA_PATH /usr/local/julia
 COPY --from=julia_install $JULIA_PATH $JULIA_PATH
